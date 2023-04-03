@@ -1,8 +1,8 @@
 #Get the created policies as data
 data "aws_iam_policy" "all_policies" {
-  count = length(var.iamUsers)
-  name  = var.iamUsers[count.index].policyName
-  path  = "/dcloud-automation/"
+  count        = length(var.iamUsers)
+  name         = var.iamUsers[count.index].policyName
+  path_prefix  = "/dcloud-automation/"
 }
 #Create IAM users 
 resource "aws_iam_user" "all_users" {

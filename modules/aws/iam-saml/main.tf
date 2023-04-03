@@ -36,9 +36,9 @@ EOF
 
 #Get the created policies as data
 data "aws_iam_policy" "all_policies" {
-  count      = length(var.samlRoles)
-  name       = var.samlRoles[count.index].policyName
-  path       = "/dcloud-automation/"
+  count       = length(var.samlRoles)
+  name        = var.samlRoles[count.index].policyName
+  path_prefix = "/dcloud-automation/"
 }
 
 resource "aws_iam_role_policy_attachment" "all_policies" {
