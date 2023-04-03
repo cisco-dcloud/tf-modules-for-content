@@ -18,7 +18,7 @@ The `policyName` is the actual name of the policy to be created and teh `policy`
 
 This is an example of how to use this module. The parameter `policy_github_branch` is optional and defaults to `master`. 
 ```
-module "iam" {
+module "iam-policies" {
   source                     = "git::https://github.com/cisco-dcloud/tf-modules-for-content.git//modules/aws/iam?ref=main"
   policies                   = [{policyName: "MyTestPolicy",policy:"test_policy.json"}]
   policy_github_branch       = "myCurrentBranch"
