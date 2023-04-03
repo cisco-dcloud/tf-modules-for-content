@@ -38,9 +38,6 @@ EOF
 data "aws_iam_policy" "all_policies" {
   count      = length(var.samlRoles)
   name       = var.samlRoles[count.index].policyName
-  depends_on = [
-    aws_iam_role.all_saml_roles
-  ]
 }
 
 resource "aws_iam_role_policy_attachment" "all_policies" {
