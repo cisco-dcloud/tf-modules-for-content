@@ -1,8 +1,3 @@
-variable "child_account" {
-  type        = string
-  description = "AWS Child Account Number "
-}
-
 variable "samlRoles" {
   type        = list(object({
     roleName     = string

@@ -16,7 +16,7 @@ resource "aws_iam_role" "all_saml_roles" {
       "Sid": "",
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::${var.child_account}:saml-provider/idp.cat-dcloud.com"
+        "Federated": "arn:aws:iam::${data.aws_caller_identity.current}:saml-provider/idp.cat-dcloud.com"
       },
       "Action": "sts:AssumeRoleWithSAML",
       "Condition": {
