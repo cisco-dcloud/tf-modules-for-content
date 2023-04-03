@@ -1,9 +1,4 @@
-# -----------------------------
-# April 2022
-# ver 5.1, rajeshvs@cisco
-# 
-#------------------------------
-# pick the first AZ #
+
 data "aws_availability_zones" "available" {
   state = "available"
 }
@@ -11,7 +6,7 @@ data "aws_availability_zones" "available" {
 # create VPC  
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  name                             = "${var.demo_id}-vpc"
+  name                             = "${var.vpc_name}"
   cidr                             = "10.0.0.0/16"
   azs                              = [data.aws_availability_zones.available.names[0]]
   private_subnets                  = ["10.0.11.0/24"]
