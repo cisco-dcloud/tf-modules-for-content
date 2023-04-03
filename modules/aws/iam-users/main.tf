@@ -2,9 +2,6 @@
 data "aws_iam_policy" "all_policies" {
   count = length(var.iamUsers)
   name = var.iamUsers[count.index].policyName
-  depends_on = [
-    aws_iam_policy.from_file
-  ]
 }
 #Create IAM users 
 resource "aws_iam_user" "all_users" {

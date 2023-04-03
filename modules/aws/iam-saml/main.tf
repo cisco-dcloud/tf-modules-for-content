@@ -1,3 +1,6 @@
+
+data "aws_caller_identity" "current" {} # used for accesing Account ID and ARN
+
 #Create SAML Provider
 resource "aws_iam_saml_provider" "cat-idp" {
   name                   = "idp.cat-dcloud.com"
