@@ -12,6 +12,8 @@ resource "aws_instance" "ec2" {
   count = length(var.instances)
   ami              = data.aws_ami.amazon-linux.id
   instance_type    = var.instances[count.index].type
-  name             = var.instances[count.index].name
   subnet_id        = var.vpc.private_subnets[0]
+  tags = {
+    Name = var.instances[count.index].name
+  }
 }
