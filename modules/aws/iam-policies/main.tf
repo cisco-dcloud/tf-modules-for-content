@@ -3,7 +3,7 @@
 data "github_repository_file" "from_file" {
   count = length(var.policies)
   repository          = "terraform-for-demo-content"
-  branch              = var.github_branch
+  branch              = var.policy_github_branch
   file                = "cloud/aws/policies/${var.policies[count.index].policy}"
 }
 
