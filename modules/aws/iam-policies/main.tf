@@ -2,9 +2,9 @@
 # The following downloads all the files defining the policies from github
 data "github_repository_file" "from_file" {
   count        = length(var.policies)
-  repository   = "terraform-for-demo-content"
+  repository   = "tf-projects-for-content"
   branch       = var.policy_github_branch
-  file         = "cloud/aws/policies/${var.policies[count.index].policy}"
+  file         = "policies/aws/${var.policies[count.index].policy}"
 }
 
 #Create policies from downloaded files
