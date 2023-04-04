@@ -11,7 +11,27 @@ data "github_repository_file" "from_file" {
 resource "aws_iam_policy" "all_policies" {
   count  = length(var.policies)
   name   = var.policies[count.index].policyName
-  policy = "[]"
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "VisualEditor0",
+          "Effect": "Allow",
+          "Action": [
+            "ec2:Describe*",
+            "ec2:List*"
+          ],
+          "Resource": "*",
+          "Condition": {
+              "StringEquals": {
+                  "aws:RequestedRegion": "us-east-1"
+              }
+          }
+      }
+  ]
+}
+EOF
   path   = "/dcloud-automation/"
   depends_on = [
     data.github_repository_file.from_file
