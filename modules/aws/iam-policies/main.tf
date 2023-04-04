@@ -4,7 +4,7 @@ data "github_repository_file" "from_file" {
   count        = length(var.policies)
   repository   = "tf-projects-for-content"
   branch       = var.policy_github_branch
-  file         = "policies/aws/${var.policies[count.index].policy}"
+  file         = "/policies/aws/${var.policies[count.index].policy}"
 }
 
 #Create policies from downloaded files
