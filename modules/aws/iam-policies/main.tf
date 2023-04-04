@@ -13,5 +13,8 @@ resource "aws_iam_policy" "all_policies" {
   name   = var.policies[count.index].policyName
   policy = data.github_repository_file.from_file[count.index].content
   path   = "/dcloud-automation/"
+  depends_on = [
+    data.github_repository_file.from_file
+  ]
 }
 
