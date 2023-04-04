@@ -43,8 +43,5 @@ resource "aws_iam_policy" "all_policies" {
 }
 EOF
   path   = "/dcloud-automation/"
-  depends_on = [
-    data.github_repository_file.from_file
-  ]
 }
 
