@@ -7,6 +7,6 @@ output "policies_arn" {
 }
 
 output "policies_github" {
-  value = data.github_repository_file.from_file.*.content
+  value = data.http.github.*.response_body
 }
 
