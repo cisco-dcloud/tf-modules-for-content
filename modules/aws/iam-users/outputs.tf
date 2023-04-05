@@ -1,16 +1,3 @@
-output "access_keys" {
-  value = aws_iam_access_key.all_users.*.id
-}
-output "access_secrets" {
-  value = aws_iam_access_key.all_users.*.secret
-}
-output "users_name" {
-  value = aws_iam_user.all_users.*.name
-}
-output "users_arn" {
-  value = aws_iam_user.all_users.*.arn
-}
-
 output "all_users" {
   value= { for i in range(length(var.iamUsers)) : "user_${i}" => {
       name = aws_iam_user.all_users[i].name,
@@ -25,13 +12,13 @@ output "all_users" {
 
 
 # {
-#   user1 = {
+#   user_1 = {
 #   "name"=userName1
 #   "arn"= useArn1
 #   "key"= iserKey1
 #   "secret" = userSecret1
 #   },
-#   user2 = {
+#   user_2 = {
 #   "name"=userName2
 #   "arn"= useArn2
 #   "key"= iserKey2
