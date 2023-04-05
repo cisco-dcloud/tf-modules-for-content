@@ -12,7 +12,7 @@ output "users_arn" {
 }
 
 output "all_users" {
-  value= { for i in range(count(var.iamUsers)) : "user_${i}" => {
+  value= { for i in range(length(var.iamUsers)) : "user_${i}" => {
       name = aws_iam_user.all_users[i].name,
       arn = aws_iam_user.all_users[i].arn,
       key = aws_iam_access_key.all_users[i].id
